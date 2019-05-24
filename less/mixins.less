@@ -1,1 +1,37 @@
 // Mixins Here
+
+.flex-mixin(@justify-c: center, @align-i: center) {
+  display: flex;
+  flex-direction: column;
+  justify-content: @justify-c;
+  align-items: @align-i;
+}
+
+@b: @EbonyClay;
+
+.button(@width, @height, @b, @padding, @color, @fontsize) {
+  width: @width;
+  height: @height;
+  background-color: @bg-color;
+  padding: @padding;
+  color: @color;
+  font-size: @fontsize;
+  transition-duration: 0.2s;
+}
+
+.btn {
+  .button(200px, auto, @bg-color, 20px, @white, 1.8rem);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: @CloudBurst;
+    color: @btn-hoover-text;
+  }
+  @media @phone {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
